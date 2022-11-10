@@ -1,2 +1,36 @@
 {{!-- index.hbs --}}
-<h2>initial indexpage</h2>
+<div>
+  <div>
+    <form action="/:category" method="get">
+      <select name="category" id="category">
+        {{#each category}}
+        <option value="{{this.name}}">{{this.name}}</option>
+        {{/each}}
+      </select>
+    </form>
+    <div>
+      <h5>總金額:</h5>
+      <h1>12345{{data.subtotal}}</h1>
+    </div>
+  </div>
+  <div =class="container">
+    <table>
+      {{!-- {{#each records}} --}}
+      <tr>
+        <td>
+          <i class="{{this.icon}}fa-solid fa-utensils"></i>
+          <div>
+            <p>{{this.name}}午餐</p>
+            <p>{{this.date}}2019/04/23</p>
+          </div>
+          <p>{{this.amount}}60</p>
+          <a class="h6" href="/edit/:{{this.id}}">修改</a>
+          <a class="h6" href="/delete/:{{this.id}}">刪除</a>
+        </td>
+      </tr>
+      {{!-- {{/each}} --}}
+      
+    </table>
+  </div>
+  <a href="/new" class="btn btn-dark" style="background-color:#e76910';font-weight:bold; color: white">新增支出</a>
+</div>
