@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 })
 
 //To new entry page
-router.get('/new', (req,res) => {
+router.get('/new', (req, res) => {
   res.render('new')
 })
 
@@ -17,4 +17,16 @@ router.get('/new', (req,res) => {
 router.post('/new', (req, res) => {
   res.redirect('/')
 })
+
+//To edit page
+router.get('/edit/:id', (req, res) => {
+  console.log(req.params.id)
+  res.render('edit')
+})
+
+//Submit edit
+router.post('/edit/:id', (req, res) => {
+  res.redirect('/')
+})
+
 module.exports = router
