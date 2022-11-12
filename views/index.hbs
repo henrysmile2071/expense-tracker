@@ -1,54 +1,54 @@
 {{!-- index.hbs --}}
-
 <div class="row justify-content-center">
-  <div class="col-6">
+  <div class="row col-6 justify-content-center">
     <form action="/:category" method="get">
-      <select name="category" id="category">
-        {{#each category}}
-        <option value="{{this.name}}">{{this.name}}</option>
-        {{/each}}
+      <select class="form-select mb-5 w-75" name="category" id="category">
+        <option selected>類別</option>
+        {{!-- {{#each category}} --}}
+        <option value="{{this.name}}1">{{this.name}}1</option>
+        {{!-- {{/each}} --}}
       </select>
     </form>
   </div>
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <div class="d-flex flex-row">
-        <h5 class="fw-bold">總金額:</h5>
-        <h1 class="display-1 fw-bold" style="color:rgb(233, 128, 16)">12345{{data.total}}</h1>
-      </div>
+</div>
+<div class="row justify-content-center">
+  <div class="row col-6 justify-content-center">
+    <div class="d-flex flex-row">
+      <h5 class="fw-bold">總金額:</h5>
+      <h1 class="display-1 fw-bold" style="color:rgb(233, 128, 16)">12345{{data.total}}</h1>
     </div>
   </div>
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <table class="table table-striped ">
-        {{!-- {{#each records}} --}}
-        <tr class="d-flex flex-row ">
-          <td class="py-auto">
-            <i class="{{this.icon}}fa-solid fa-utensils fa-3x" style="color:rgb(137, 213, 230)"></i>
-          </td>
-          <td class="pe-5">
-            <p class="fs-4 fw-bold mb-0">{{this.name}}午餐</p>
-            <p class="mb-0 fw-bold" style="font-size:x-small">{{this.date}}2019/04/23</p>
-          </td>
-          <td class="ps-5 me-5">
-            <p class="fs-5 fw-bold mb-0 align-middle mx-3 ps-5">{{this.amount}}60</p>
-          </td>
-          <td>
-            <a class="btn fw-bold fs-5" href="/edit/:{{this.id}}">修改</a>
-          </td>
-          <td>
-            <form action="./{{ this._id }}?_method=DELETE" method="POST">
-              <button class="btn fw-bold fs-5" type="submit">刪除</button>
-            </form>
-          </td>
-        </tr>
-        {{!-- {{/each}} --}}
-      </table>
-    </div>
+</div>
+<div class="row justify-content-center">
+  <div class="row col-6 justify-content-center">
+    <table class="table table-striped ">
+      {{!-- {{#each records}} --}}
+      <tr class="d-flex flex-row ">
+        <td class="py-auto">
+          <i class="{{this.icon}}fa-solid fa-utensils fa-3x" style="color:rgb(137, 213, 230)"></i>
+        </td>
+        <td class="pe-5">
+          <p class="fs-4 fw-bold mb-0">{{this.name}}午餐</p>
+          <p class="mb-0 fw-bold" style="font-size:x-small">{{this.date}}2019/04/23</p>
+        </td>
+        <td class="ps-5">
+          <p class="fs-5 fw-bold mb-0 align-middle mx-3">{{this.amount}}60</p>
+        </td>
+        <td>
+          <a class="btn fw-bold fs-5" href="/edit/:{{this.id}}">修改</a>
+        </td>
+        <td>
+          <form action="./{{ this._id }}?_method=DELETE" method="POST">
+            <button class="btn fw-bold fs-5" type="submit">刪除</button>
+          </form>
+        </td>
+      </tr>
+      {{!-- {{/each}} --}}
+    </table>
   </div>
-  <div class="row justify-content-center">
-    <div class="col-4">
-      <a href="/new" class="btn btn-dark mt-4 px-5 text-nowrap" style="background-color:rgb(233, 128, 16)">新增支出</a>
-    </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-6 text-center">
+    <a href="/new" class="btn btn-dark mt-4 px-5 text-nowrap" style="background-color:rgb(233, 128, 16)">新增支出</a>
   </div>
 </div>
