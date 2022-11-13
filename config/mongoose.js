@@ -3,6 +3,8 @@ const path = require('path')
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
+  //fix for: Error[MongooseError]: The `uri` parameter to `openUri()` must be a string, got
+  // "undefined".
 }
 
 //Mongoose connection
