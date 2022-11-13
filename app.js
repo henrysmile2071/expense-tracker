@@ -13,9 +13,13 @@ const routes = require('./routes')
 const session = require('express-session')
 const usePassport = require('./config/passport')
 const flash = require('connect-flash')
+const hbsHelpers = exphbs.create({
+  helpers: require('./utility/handlebarsHelper').helpers,
+  defaultLayout: 'main', extname: '.hbs'
+})
 
 //middleware
-app.engine('hbs', exphbs({ default: 'main', extname: '.hbs' }))
+app.engine('hbs', hbsHelpers.engine)
 app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))

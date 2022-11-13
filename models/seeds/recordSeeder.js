@@ -3,7 +3,6 @@ const db = require('../../config/mongoose')
 const Record = require('../record')
 const User = require('../user')
 const Category = require('../category')
-const category = require('../category')
 const RECORDS = [
   {
     name: '早餐',
