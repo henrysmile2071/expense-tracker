@@ -1,6 +1,6 @@
 # Expense Tracker
 
-![Index page about Expense Tracker](./public/image/snapshot3.png)
+![Index page about Expense Tracker](./public/image/cover.png)
 
 ## About
 
