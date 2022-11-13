@@ -9,6 +9,7 @@ const CATEGORY = {
 }
 
 db.once('open', async () => {
+  try {
   for (const [key, value] of Object.entries(CATEGORY)) {
     await Category.create({
       name: key,
@@ -17,4 +18,5 @@ db.once('open', async () => {
   }
   console.log('category seeder done!')
   process.exit()
+  } catch (error) { console.error(error) }
 })

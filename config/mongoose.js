@@ -1,11 +1,15 @@
-const mongoose = require('mongoose') //require mongoose
-// if (process.env.NODE_ENV !== 'production') {
-//   require('dotenv').config()
-// }
-const MONGODB_URI = 'mongodb://localhost/expense-tracker'
-//Mongoose connection
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }) //setting connection to mongoDB
+const mongoose = require('mongoose')
+const path = require('path')
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
+}
+
+//Mongoose connection
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+mongoose.set('useFindAndModify', false)
+
+// connect to database
 const db = mongoose.connection
 
 db.on('error', () => {
