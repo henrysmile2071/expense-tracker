@@ -9,30 +9,33 @@
   <div class="form-group row mb-5 align-items-center">
     <label for="name" class="col-sm-2 col-form-label fw-bold fs-4">名稱*:</label>
     <div class="col-sm-10">
-      <input type="name" name="name" id="name" class="form-control" placeholder="輸入支出名稱" value="{{name}}" required>
+      <input type="name" name="name" id="name" class="form-control" placeholder="輸入支出名稱" value="{{record.name}}"
+        required>
     </div>
   </div>
   <div class="form-group row mb-5 align-items-center">
     <label for="date" class="col-sm-2 col-form-label fw-bold fs-4">日期*:</label>
     <div class="col-sm-10">
-      <input type="date" name="date" id="date" class="form-control" value="{{date}}" required>
+      <input type="date" name="date" id="date" class="form-control" value="{{record.date}}" required>
     </div>
   </div>
   <div class="form-group row mb-5 align-items-center">
     <label for="category" class="col-sm-2 col-form-label fw-bold fs-4">類別*:</label>
     <div class="col-sm-10">
       <select name="category" id="category" class="form-control form-select" required>
-        <option value="{{category}}">{{category}}</option>
-        {{!-- {{#each category}} --}}
-        <option value="1{{this.name}}">1{{this.name}}</option>
-        {{!-- {{/each}} --}}
+        <option value="">Select</option>
+        {{#select record.categoryId}}
+        {{#each category}}
+        <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+        {{/select}}
       </select>
     </div>
   </div>
   <div class="form-group row mb-5 align-items-center">
     <label for="amount" class="col-sm-2 col-form-label fw-bold fs-4">金額*:</label>
     <div class="col-sm-10">
-      <input type="number" name="amount" id="amount" class="form-control" placeholder="" value="{{amount}}">
+      <input type="number" name="amount" id="amount" class="form-control" placeholder="" value="{{record.amount}}">
     </div>
   </div>
   <div class="form-group row mb-5 align-items-center">
