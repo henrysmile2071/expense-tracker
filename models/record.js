@@ -6,7 +6,7 @@ const recordSchema = new Schema({
     required: true //required field
   },
   date: {
-    type: Date,
+    type: String,
     required: true
   },
   categoryId: {

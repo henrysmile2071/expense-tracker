@@ -10,14 +10,12 @@ router.get('/', async (req, res) => {
   try {
     const userId = req.user._id
     const category = await Category.find().lean()
-    const recordData = await Record.find({ userId }).lean()
-    recordData.forEach(record => {
-      record.icon =
-        category.find(x => record.categoryId.toString() === x._id.toString()).icon
-    })
+    const records = await Record.find({ userId }).lean()
     let totalAmount = 0
-    recordData.forEach(record => {totalAmount += record.amount})
-    const records = recordData
+    records.forEach(record => {
+      record.icon = category.find(x => record.categoryId.toString() === x._id.toString()).icon
+      totalAmount += record.amount
+    })
     res.render('index', { records, category, totalAmount })
   } catch (error) { console.error(error) }
 })
