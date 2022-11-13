@@ -61,7 +61,7 @@ router.post('/register', (req, res) => {
       return User.create({
         name,
         email,
-        password: bcrypt.hashSync(user.password, 10),
+        password: bcrypt.hashSync(password, 10),
       })
         .then(() => res.redirect('/'))
         .catch(err => console.log(err))
