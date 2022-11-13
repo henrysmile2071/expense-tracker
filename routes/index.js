@@ -10,7 +10,6 @@ const users = require('./modules/users')
 
 //Routes to Login and Registry 
 router.use('/users', users)
-
 //Routes to index
 router.use('/', home)
 

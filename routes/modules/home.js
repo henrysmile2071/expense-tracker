@@ -5,6 +5,7 @@ const router = express.Router()
 // routes
 //To index page
 router.get('/', (req, res) => {
+  
   res.render('index')
 })
 
