@@ -43,7 +43,7 @@ db.once('open', async () => {
       const userRecord = []
       RECORDS.map((record, user_index) => {
         record.userId = createdUser._id
-        record.categoryId = categoryData.find(products => products.type === RECORDS.type)._id
+        record.categoryId = categoryData.find(category => category.name === record.type)._id
         userRecord.push(record)
       })
       await Record.create(userRecord)

@@ -5,7 +5,10 @@ const register = function (Handlebars) {
       return options.fn(this)
         .replace(new RegExp('value=\"' + selected + '\"'), '$& selected="selected"')
         .replace(new RegExp('>' + selected + '</option>'), ' selected="selected"$&')
-    }
+    },
+    getImage: function (category, category_image) {
+      return category_image[category]
+    },
   }
 
   if (Handlebars && typeof Handlebars.registerHelper === "function") {
