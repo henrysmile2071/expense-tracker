@@ -2,7 +2,7 @@
 <div class="row justify-content-center">
   <div class="row col-6 justify-content-center">
     <form action="/" method="get">
-      <select class="form-select mb-5 w-75" name="category" id="category" onchange="this.form.submit()">
+      <select class="form-select mb-3 w-75" name="category" id="category" onchange="this.form.submit()">
         <option>類別</option>
         {{#select categoryId}}
         {{#each category}}
@@ -24,17 +24,24 @@
 <div class="row justify-content-center">
   <div class="row col-6 justify-content-center">
     <table class="table table-striped ">
+      <colgroup>
+        <col class="col-md-1">
+        <col class="col-md-5">
+        <col class="col-md-2">
+        <col class="col-md-2">
+        <col class="col-md-2">
+      </colgroup>
       {{#each records}}
-      <tr class="d-flex flex-row">
-        <td class="py-auto">
+      <tr>
+        <td>
           <i class="{{this.icon}} fa-3x" style="color:rgb(137, 213, 230)"></i>
         </td>
-        <td class="pe-5">
+        <td>
           <p class="fs-4 fw-bold mb-0">{{this.name}}</p>
           <p class="mb-0 fw-bold" style="font-size:x-small">{{this.date}}</p>
         </td>
-        <td class="ps-5">
-          <p class="fs-5 fw-bold mb-0 align-middle mx-3">{{this.amount}}</p>
+        <td>
+          <p class="fs-5 fw-bold mb-0 align-middle">{{this.amount}}</p>
         </td>
         <td>
           <a class="btn fw-bold fs-5" href="./edit/{{this._id}}">修改</a>
