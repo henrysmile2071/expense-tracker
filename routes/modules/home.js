@@ -60,13 +60,13 @@ router.get('/edit/:_id', async (req, res) => {
 })
 
 //Submit edit
-router.post('/edit/:_id', (req, res) => {
+router.put('/edit/:_id', (req, res) => {
   const recordData = req.body
   const _id = req.params._id
   const userId = req.user._id
   recordData.userId = userId
   return Record.findByIdAndUpdate(_id, req.body)
-    .then(() => res.redirect(`/`))
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
